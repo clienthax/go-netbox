@@ -31205,7 +31205,7 @@
         },
         "family": {
           "title": "Family",
-          "type": "string",
+          "type": "integer",
           "readOnly": true
         },
         "address": {
