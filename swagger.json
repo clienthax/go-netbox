@@ -33867,7 +33867,7 @@
           "description": "\nReturn the appropriate serializer for the type of connected object.\n",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "type": "object"
           },
           "readOnly": true
         },
