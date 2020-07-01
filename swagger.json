@@ -30734,7 +30734,7 @@
           "title": "Termination a",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "type": "object"
           },
           "readOnly": true
         },
@@ -30752,7 +30752,7 @@
           "title": "Termination b",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "type": "object"
           },
           "readOnly": true
         },
