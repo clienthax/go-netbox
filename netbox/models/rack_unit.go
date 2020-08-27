@@ -48,6 +48,10 @@ type RackUnit struct {
 	// Read Only: true
 	// Min Length: 1
 	Name string `json:"name,omitempty"`
+
+	// Occupied
+	// Read Only: true
+	Occupied *bool `json:"occupied,omitempty"`
 }
 
 // Validate validates this rack unit

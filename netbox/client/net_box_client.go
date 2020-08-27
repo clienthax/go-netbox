@@ -31,6 +31,7 @@ import (
 	"github.com/netbox-community/go-netbox/netbox/client/ipam"
 	"github.com/netbox-community/go-netbox/netbox/client/secrets"
 	"github.com/netbox-community/go-netbox/netbox/client/tenancy"
+	"github.com/netbox-community/go-netbox/netbox/client/users"
 	"github.com/netbox-community/go-netbox/netbox/client/virtualization"
 )
 
@@ -82,6 +83,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *NetBox {
 	cli.Ipam = ipam.New(transport, formats)
 	cli.Secrets = secrets.New(transport, formats)
 	cli.Tenancy = tenancy.New(transport, formats)
+	cli.Users = users.New(transport, formats)
 	cli.Virtualization = virtualization.New(transport, formats)
 	return cli
 }
@@ -139,6 +141,8 @@ type NetBox struct {
 
 	Tenancy tenancy.ClientService
 
+	Users users.ClientService
+
 	Virtualization virtualization.ClientService
 
 	Transport runtime.ClientTransport
@@ -153,5 +157,6 @@ func (c *NetBox) SetTransport(transport runtime.ClientTransport) {
 	c.Ipam.SetTransport(transport)
 	c.Secrets.SetTransport(transport)
 	c.Tenancy.SetTransport(transport)
+	c.Users.SetTransport(transport)
 	c.Virtualization.SetTransport(transport)
 }

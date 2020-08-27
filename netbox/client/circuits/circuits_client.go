@@ -166,7 +166,7 @@ func (a *Client) CircuitsCircuitTerminationsDelete(params *CircuitsCircuitTermin
 }
 
 /*
-  CircuitsCircuitTerminationsList Call to super to allow for caching
+  CircuitsCircuitTerminationsList circuits circuit terminations list API
 */
 func (a *Client) CircuitsCircuitTerminationsList(params *CircuitsCircuitTerminationsListParams, authInfo runtime.ClientAuthInfoWriter) (*CircuitsCircuitTerminationsListOK, error) {
 	// TODO: Validate the params before sending
@@ -236,7 +236,7 @@ func (a *Client) CircuitsCircuitTerminationsPartialUpdate(params *CircuitsCircui
 }
 
 /*
-  CircuitsCircuitTerminationsRead Call to super to allow for caching
+  CircuitsCircuitTerminationsRead circuits circuit terminations read API
 */
 func (a *Client) CircuitsCircuitTerminationsRead(params *CircuitsCircuitTerminationsReadParams, authInfo runtime.ClientAuthInfoWriter) (*CircuitsCircuitTerminationsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -376,7 +376,7 @@ func (a *Client) CircuitsCircuitTypesDelete(params *CircuitsCircuitTypesDeletePa
 }
 
 /*
-  CircuitsCircuitTypesList Call to super to allow for caching
+  CircuitsCircuitTypesList circuits circuit types list API
 */
 func (a *Client) CircuitsCircuitTypesList(params *CircuitsCircuitTypesListParams, authInfo runtime.ClientAuthInfoWriter) (*CircuitsCircuitTypesListOK, error) {
 	// TODO: Validate the params before sending
@@ -446,7 +446,7 @@ func (a *Client) CircuitsCircuitTypesPartialUpdate(params *CircuitsCircuitTypesP
 }
 
 /*
-  CircuitsCircuitTypesRead Call to super to allow for caching
+  CircuitsCircuitTypesRead circuits circuit types read API
 */
 func (a *Client) CircuitsCircuitTypesRead(params *CircuitsCircuitTypesReadParams, authInfo runtime.ClientAuthInfoWriter) (*CircuitsCircuitTypesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -586,7 +586,7 @@ func (a *Client) CircuitsCircuitsDelete(params *CircuitsCircuitsDeleteParams, au
 }
 
 /*
-  CircuitsCircuitsList Call to super to allow for caching
+  CircuitsCircuitsList circuits circuits list API
 */
 func (a *Client) CircuitsCircuitsList(params *CircuitsCircuitsListParams, authInfo runtime.ClientAuthInfoWriter) (*CircuitsCircuitsListOK, error) {
 	// TODO: Validate the params before sending
@@ -656,7 +656,7 @@ func (a *Client) CircuitsCircuitsPartialUpdate(params *CircuitsCircuitsPartialUp
 }
 
 /*
-  CircuitsCircuitsRead Call to super to allow for caching
+  CircuitsCircuitsRead circuits circuits read API
 */
 func (a *Client) CircuitsCircuitsRead(params *CircuitsCircuitsReadParams, authInfo runtime.ClientAuthInfoWriter) (*CircuitsCircuitsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -831,7 +831,7 @@ func (a *Client) CircuitsProvidersGraphs(params *CircuitsProvidersGraphsParams, 
 }
 
 /*
-  CircuitsProvidersList Call to super to allow for caching
+  CircuitsProvidersList circuits providers list API
 */
 func (a *Client) CircuitsProvidersList(params *CircuitsProvidersListParams, authInfo runtime.ClientAuthInfoWriter) (*CircuitsProvidersListOK, error) {
 	// TODO: Validate the params before sending
@@ -901,7 +901,7 @@ func (a *Client) CircuitsProvidersPartialUpdate(params *CircuitsProvidersPartial
 }
 
 /*
-  CircuitsProvidersRead Call to super to allow for caching
+  CircuitsProvidersRead circuits providers read API
 */
 func (a *Client) CircuitsProvidersRead(params *CircuitsProvidersReadParams, authInfo runtime.ClientAuthInfoWriter) (*CircuitsProvidersReadOK, error) {
 	// TODO: Validate the params before sending

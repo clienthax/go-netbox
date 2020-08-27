@@ -232,7 +232,7 @@ func (a *Client) IpamAggregatesDelete(params *IpamAggregatesDeleteParams, authIn
 }
 
 /*
-  IpamAggregatesList Call to super to allow for caching
+  IpamAggregatesList ipam aggregates list API
 */
 func (a *Client) IpamAggregatesList(params *IpamAggregatesListParams, authInfo runtime.ClientAuthInfoWriter) (*IpamAggregatesListOK, error) {
 	// TODO: Validate the params before sending
@@ -302,7 +302,7 @@ func (a *Client) IpamAggregatesPartialUpdate(params *IpamAggregatesPartialUpdate
 }
 
 /*
-  IpamAggregatesRead Call to super to allow for caching
+  IpamAggregatesRead ipam aggregates read API
 */
 func (a *Client) IpamAggregatesRead(params *IpamAggregatesReadParams, authInfo runtime.ClientAuthInfoWriter) (*IpamAggregatesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -442,7 +442,7 @@ func (a *Client) IpamIPAddressesDelete(params *IpamIPAddressesDeleteParams, auth
 }
 
 /*
-  IpamIPAddressesList Call to super to allow for caching
+  IpamIPAddressesList ipam ip addresses list API
 */
 func (a *Client) IpamIPAddressesList(params *IpamIPAddressesListParams, authInfo runtime.ClientAuthInfoWriter) (*IpamIPAddressesListOK, error) {
 	// TODO: Validate the params before sending
@@ -512,7 +512,7 @@ func (a *Client) IpamIPAddressesPartialUpdate(params *IpamIPAddressesPartialUpda
 }
 
 /*
-  IpamIPAddressesRead Call to super to allow for caching
+  IpamIPAddressesRead ipam ip addresses read API
 */
 func (a *Client) IpamIPAddressesRead(params *IpamIPAddressesReadParams, authInfo runtime.ClientAuthInfoWriter) (*IpamIPAddressesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -808,7 +808,7 @@ func (a *Client) IpamPrefixesDelete(params *IpamPrefixesDeleteParams, authInfo r
 }
 
 /*
-  IpamPrefixesList Call to super to allow for caching
+  IpamPrefixesList ipam prefixes list API
 */
 func (a *Client) IpamPrefixesList(params *IpamPrefixesListParams, authInfo runtime.ClientAuthInfoWriter) (*IpamPrefixesListOK, error) {
 	// TODO: Validate the params before sending
@@ -878,7 +878,7 @@ func (a *Client) IpamPrefixesPartialUpdate(params *IpamPrefixesPartialUpdatePara
 }
 
 /*
-  IpamPrefixesRead Call to super to allow for caching
+  IpamPrefixesRead ipam prefixes read API
 */
 func (a *Client) IpamPrefixesRead(params *IpamPrefixesReadParams, authInfo runtime.ClientAuthInfoWriter) (*IpamPrefixesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -1018,7 +1018,7 @@ func (a *Client) IpamRirsDelete(params *IpamRirsDeleteParams, authInfo runtime.C
 }
 
 /*
-  IpamRirsList Call to super to allow for caching
+  IpamRirsList ipam rirs list API
 */
 func (a *Client) IpamRirsList(params *IpamRirsListParams, authInfo runtime.ClientAuthInfoWriter) (*IpamRirsListOK, error) {
 	// TODO: Validate the params before sending
@@ -1088,7 +1088,7 @@ func (a *Client) IpamRirsPartialUpdate(params *IpamRirsPartialUpdateParams, auth
 }
 
 /*
-  IpamRirsRead Call to super to allow for caching
+  IpamRirsRead ipam rirs read API
 */
 func (a *Client) IpamRirsRead(params *IpamRirsReadParams, authInfo runtime.ClientAuthInfoWriter) (*IpamRirsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -1228,7 +1228,7 @@ func (a *Client) IpamRolesDelete(params *IpamRolesDeleteParams, authInfo runtime
 }
 
 /*
-  IpamRolesList Call to super to allow for caching
+  IpamRolesList ipam roles list API
 */
 func (a *Client) IpamRolesList(params *IpamRolesListParams, authInfo runtime.ClientAuthInfoWriter) (*IpamRolesListOK, error) {
 	// TODO: Validate the params before sending
@@ -1298,7 +1298,7 @@ func (a *Client) IpamRolesPartialUpdate(params *IpamRolesPartialUpdateParams, au
 }
 
 /*
-  IpamRolesRead Call to super to allow for caching
+  IpamRolesRead ipam roles read API
 */
 func (a *Client) IpamRolesRead(params *IpamRolesReadParams, authInfo runtime.ClientAuthInfoWriter) (*IpamRolesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -1438,7 +1438,7 @@ func (a *Client) IpamServicesDelete(params *IpamServicesDeleteParams, authInfo r
 }
 
 /*
-  IpamServicesList Call to super to allow for caching
+  IpamServicesList ipam services list API
 */
 func (a *Client) IpamServicesList(params *IpamServicesListParams, authInfo runtime.ClientAuthInfoWriter) (*IpamServicesListOK, error) {
 	// TODO: Validate the params before sending
@@ -1508,7 +1508,7 @@ func (a *Client) IpamServicesPartialUpdate(params *IpamServicesPartialUpdatePara
 }
 
 /*
-  IpamServicesRead Call to super to allow for caching
+  IpamServicesRead ipam services read API
 */
 func (a *Client) IpamServicesRead(params *IpamServicesReadParams, authInfo runtime.ClientAuthInfoWriter) (*IpamServicesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -1648,7 +1648,7 @@ func (a *Client) IpamVlanGroupsDelete(params *IpamVlanGroupsDeleteParams, authIn
 }
 
 /*
-  IpamVlanGroupsList Call to super to allow for caching
+  IpamVlanGroupsList ipam vlan groups list API
 */
 func (a *Client) IpamVlanGroupsList(params *IpamVlanGroupsListParams, authInfo runtime.ClientAuthInfoWriter) (*IpamVlanGroupsListOK, error) {
 	// TODO: Validate the params before sending
@@ -1718,7 +1718,7 @@ func (a *Client) IpamVlanGroupsPartialUpdate(params *IpamVlanGroupsPartialUpdate
 }
 
 /*
-  IpamVlanGroupsRead Call to super to allow for caching
+  IpamVlanGroupsRead ipam vlan groups read API
 */
 func (a *Client) IpamVlanGroupsRead(params *IpamVlanGroupsReadParams, authInfo runtime.ClientAuthInfoWriter) (*IpamVlanGroupsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -1858,7 +1858,7 @@ func (a *Client) IpamVlansDelete(params *IpamVlansDeleteParams, authInfo runtime
 }
 
 /*
-  IpamVlansList Call to super to allow for caching
+  IpamVlansList ipam vlans list API
 */
 func (a *Client) IpamVlansList(params *IpamVlansListParams, authInfo runtime.ClientAuthInfoWriter) (*IpamVlansListOK, error) {
 	// TODO: Validate the params before sending
@@ -1928,7 +1928,7 @@ func (a *Client) IpamVlansPartialUpdate(params *IpamVlansPartialUpdateParams, au
 }
 
 /*
-  IpamVlansRead Call to super to allow for caching
+  IpamVlansRead ipam vlans read API
 */
 func (a *Client) IpamVlansRead(params *IpamVlansReadParams, authInfo runtime.ClientAuthInfoWriter) (*IpamVlansReadOK, error) {
 	// TODO: Validate the params before sending
@@ -2068,7 +2068,7 @@ func (a *Client) IpamVrfsDelete(params *IpamVrfsDeleteParams, authInfo runtime.C
 }
 
 /*
-  IpamVrfsList Call to super to allow for caching
+  IpamVrfsList ipam vrfs list API
 */
 func (a *Client) IpamVrfsList(params *IpamVrfsListParams, authInfo runtime.ClientAuthInfoWriter) (*IpamVrfsListOK, error) {
 	// TODO: Validate the params before sending
@@ -2138,7 +2138,7 @@ func (a *Client) IpamVrfsPartialUpdate(params *IpamVrfsPartialUpdateParams, auth
 }
 
 /*
-  IpamVrfsRead Call to super to allow for caching
+  IpamVrfsRead ipam vrfs read API
 */
 func (a *Client) IpamVrfsRead(params *IpamVrfsReadParams, authInfo runtime.ClientAuthInfoWriter) (*IpamVrfsReadOK, error) {
 	// TODO: Validate the params before sending

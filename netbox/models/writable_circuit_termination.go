@@ -55,7 +55,7 @@ type WritableCircuitTermination struct {
 
 	// Connection status
 	// Enum: [false true]
-	ConnectionStatus bool `json:"connection_status,omitempty"`
+	ConnectionStatus *bool `json:"connection_status,omitempty"`
 
 	// Description
 	// Max Length: 200
@@ -90,6 +90,11 @@ type WritableCircuitTermination struct {
 	// Maximum: 2.147483647e+09
 	// Minimum: 0
 	UpstreamSpeed *int64 `json:"upstream_speed,omitempty"`
+
+	// Url
+	// Read Only: true
+	// Format: uri
+	URL strfmt.URI `json:"url,omitempty"`
 
 	// Cross-connect ID
 	// Max Length: 50
@@ -133,6 +138,10 @@ func (m *WritableCircuitTermination) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateUpstreamSpeed(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateURL(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -200,7 +209,7 @@ func (m *WritableCircuitTermination) validateConnectionStatus(formats strfmt.Reg
 	}
 
 	// value enum
-	if err := m.validateConnectionStatusEnum("connection_status", "body", m.ConnectionStatus); err != nil {
+	if err := m.validateConnectionStatusEnum("connection_status", "body", *m.ConnectionStatus); err != nil {
 		return err
 	}
 
@@ -313,6 +322,19 @@ func (m *WritableCircuitTermination) validateUpstreamSpeed(formats strfmt.Regist
 	}
 
 	if err := validate.MaximumInt("upstream_speed", "body", int64(*m.UpstreamSpeed), 2.147483647e+09, false); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WritableCircuitTermination) validateURL(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.URL) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("url", "body", "uri", m.URL.String(), formats); err != nil {
 		return err
 	}
 

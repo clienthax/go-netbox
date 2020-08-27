@@ -22,6 +22,7 @@ package models
 
 import (
 	"encoding/json"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -58,9 +59,12 @@ type Cable struct {
 	// status
 	Status *CableStatus `json:"status,omitempty"`
 
+	// tags
+	Tags []*NestedTag `json:"tags"`
+
 	// Termination a
 	// Read Only: true
-	Terminationa map[string]interface{} `json:"termination_a,omitempty"`
+	Terminationa map[string]string `json:"termination_a,omitempty"`
 
 	// Termination a id
 	// Required: true
@@ -74,7 +78,7 @@ type Cable struct {
 
 	// Termination b
 	// Read Only: true
-	Terminationb map[string]interface{} `json:"termination_b,omitempty"`
+	Terminationb map[string]string `json:"termination_b,omitempty"`
 
 	// Termination b id
 	// Required: true
@@ -89,6 +93,11 @@ type Cable struct {
 	// Type
 	// Enum: [cat3 cat5 cat5e cat6 cat6a cat7 dac-active dac-passive mrj21-trunk coaxial mmf mmf-om1 mmf-om2 mmf-om3 mmf-om4 smf smf-os1 smf-os2 aoc power]
 	Type string `json:"type,omitempty"`
+
+	// Url
+	// Read Only: true
+	// Format: uri
+	URL strfmt.URI `json:"url,omitempty"`
 }
 
 // Validate validates this cable
@@ -115,6 +124,10 @@ func (m *Cable) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateTags(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateTerminationaID(formats); err != nil {
 		res = append(res, err)
 	}
@@ -132,6 +145,10 @@ func (m *Cable) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateURL(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -219,6 +236,31 @@ func (m *Cable) validateStatus(formats strfmt.Registry) error {
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *Cable) validateTags(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Tags) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Tags); i++ {
+		if swag.IsZero(m.Tags[i]) { // not required
+			continue
+		}
+
+		if m.Tags[i] != nil {
+			if err := m.Tags[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("tags" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -367,6 +409,19 @@ func (m *Cable) validateType(formats strfmt.Registry) error {
 
 	// value enum
 	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Cable) validateURL(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.URL) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("url", "body", "uri", m.URL.String(), formats); err != nil {
 		return err
 	}
 

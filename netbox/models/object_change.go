@@ -73,6 +73,11 @@ type ObjectChange struct {
 	// Format: date-time
 	Time strfmt.DateTime `json:"time,omitempty"`
 
+	// Url
+	// Read Only: true
+	// Format: uri
+	URL strfmt.URI `json:"url,omitempty"`
+
 	// user
 	User *NestedUser `json:"user,omitempty"`
 
@@ -99,6 +104,10 @@ func (m *ObjectChange) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateTime(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateURL(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -171,6 +180,19 @@ func (m *ObjectChange) validateTime(formats strfmt.Registry) error {
 	}
 
 	if err := validate.FormatOf("time", "body", "date-time", m.Time.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ObjectChange) validateURL(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.URL) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("url", "body", "uri", m.URL.String(), formats); err != nil {
 		return err
 	}
 

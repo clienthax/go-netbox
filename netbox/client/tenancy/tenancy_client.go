@@ -140,7 +140,7 @@ func (a *Client) TenancyTenantGroupsDelete(params *TenancyTenantGroupsDeletePara
 }
 
 /*
-  TenancyTenantGroupsList Call to super to allow for caching
+  TenancyTenantGroupsList tenancy tenant groups list API
 */
 func (a *Client) TenancyTenantGroupsList(params *TenancyTenantGroupsListParams, authInfo runtime.ClientAuthInfoWriter) (*TenancyTenantGroupsListOK, error) {
 	// TODO: Validate the params before sending
@@ -210,7 +210,7 @@ func (a *Client) TenancyTenantGroupsPartialUpdate(params *TenancyTenantGroupsPar
 }
 
 /*
-  TenancyTenantGroupsRead Call to super to allow for caching
+  TenancyTenantGroupsRead tenancy tenant groups read API
 */
 func (a *Client) TenancyTenantGroupsRead(params *TenancyTenantGroupsReadParams, authInfo runtime.ClientAuthInfoWriter) (*TenancyTenantGroupsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -350,7 +350,7 @@ func (a *Client) TenancyTenantsDelete(params *TenancyTenantsDeleteParams, authIn
 }
 
 /*
-  TenancyTenantsList Call to super to allow for caching
+  TenancyTenantsList tenancy tenants list API
 */
 func (a *Client) TenancyTenantsList(params *TenancyTenantsListParams, authInfo runtime.ClientAuthInfoWriter) (*TenancyTenantsListOK, error) {
 	// TODO: Validate the params before sending
@@ -420,7 +420,7 @@ func (a *Client) TenancyTenantsPartialUpdate(params *TenancyTenantsPartialUpdate
 }
 
 /*
-  TenancyTenantsRead Call to super to allow for caching
+  TenancyTenantsRead tenancy tenants read API
 */
 func (a *Client) TenancyTenantsRead(params *TenancyTenantsReadParams, authInfo runtime.ClientAuthInfoWriter) (*TenancyTenantsReadOK, error) {
 	// TODO: Validate the params before sending

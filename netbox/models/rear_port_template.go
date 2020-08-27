@@ -34,6 +34,10 @@ import (
 // swagger:model RearPortTemplate
 type RearPortTemplate struct {
 
+	// Description
+	// Max Length: 200
+	Description string `json:"description,omitempty"`
+
 	// device type
 	// Required: true
 	DeviceType *NestedDeviceType `json:"device_type"`
@@ -41,6 +45,12 @@ type RearPortTemplate struct {
 	// ID
 	// Read Only: true
 	ID int64 `json:"id,omitempty"`
+
+	// Label
+	//
+	// Physical label
+	// Max Length: 64
+	Label string `json:"label,omitempty"`
 
 	// Name
 	// Required: true
@@ -56,13 +66,26 @@ type RearPortTemplate struct {
 	// type
 	// Required: true
 	Type *RearPortTemplateType `json:"type"`
+
+	// Url
+	// Read Only: true
+	// Format: uri
+	URL strfmt.URI `json:"url,omitempty"`
 }
 
 // Validate validates this rear port template
 func (m *RearPortTemplate) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateDescription(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateDeviceType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateLabel(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -78,9 +101,26 @@ func (m *RearPortTemplate) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateURL(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *RearPortTemplate) validateDescription(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Description) { // not required
+		return nil
+	}
+
+	if err := validate.MaxLength("description", "body", string(m.Description), 200); err != nil {
+		return err
+	}
+
 	return nil
 }
 
@@ -97,6 +137,19 @@ func (m *RearPortTemplate) validateDeviceType(formats strfmt.Registry) error {
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *RearPortTemplate) validateLabel(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Label) { // not required
+		return nil
+	}
+
+	if err := validate.MaxLength("label", "body", string(m.Label), 64); err != nil {
+		return err
 	}
 
 	return nil
@@ -149,6 +202,19 @@ func (m *RearPortTemplate) validateType(formats strfmt.Registry) error {
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *RearPortTemplate) validateURL(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.URL) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("url", "body", "uri", m.URL.String(), formats); err != nil {
+		return err
 	}
 
 	return nil

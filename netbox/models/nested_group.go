@@ -27,13 +27,10 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// IPAddressInterface Interface
+// NestedGroup nested group
 //
-// swagger:model IPAddressInterface
-type IPAddressInterface struct {
-
-	// device
-	Device *NestedDevice `json:"device,omitempty"`
+// swagger:model NestedGroup
+type NestedGroup struct {
 
 	// ID
 	// Read Only: true
@@ -41,31 +38,25 @@ type IPAddressInterface struct {
 
 	// Name
 	// Required: true
-	// Max Length: 64
+	// Max Length: 150
 	// Min Length: 1
 	Name *string `json:"name"`
 
 	// Url
 	// Read Only: true
-	URL string `json:"url,omitempty"`
-
-	// virtual machine
-	VirtualMachine *NestedVirtualMachine `json:"virtual_machine,omitempty"`
+	// Format: uri
+	URL strfmt.URI `json:"url,omitempty"`
 }
 
-// Validate validates this IP address interface
-func (m *IPAddressInterface) Validate(formats strfmt.Registry) error {
+// Validate validates this nested group
+func (m *NestedGroup) Validate(formats strfmt.Registry) error {
 	var res []error
-
-	if err := m.validateDevice(formats); err != nil {
-		res = append(res, err)
-	}
 
 	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateVirtualMachine(formats); err != nil {
+	if err := m.validateURL(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -75,25 +66,7 @@ func (m *IPAddressInterface) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *IPAddressInterface) validateDevice(formats strfmt.Registry) error {
-
-	if swag.IsZero(m.Device) { // not required
-		return nil
-	}
-
-	if m.Device != nil {
-		if err := m.Device.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("device")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *IPAddressInterface) validateName(formats strfmt.Registry) error {
+func (m *NestedGroup) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
 		return err
@@ -103,33 +76,28 @@ func (m *IPAddressInterface) validateName(formats strfmt.Registry) error {
 		return err
 	}
 
-	if err := validate.MaxLength("name", "body", string(*m.Name), 64); err != nil {
+	if err := validate.MaxLength("name", "body", string(*m.Name), 150); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *IPAddressInterface) validateVirtualMachine(formats strfmt.Registry) error {
+func (m *NestedGroup) validateURL(formats strfmt.Registry) error {
 
-	if swag.IsZero(m.VirtualMachine) { // not required
+	if swag.IsZero(m.URL) { // not required
 		return nil
 	}
 
-	if m.VirtualMachine != nil {
-		if err := m.VirtualMachine.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("virtual_machine")
-			}
-			return err
-		}
+	if err := validate.FormatOf("url", "body", "uri", m.URL.String(), formats); err != nil {
+		return err
 	}
 
 	return nil
 }
 
 // MarshalBinary interface implementation
-func (m *IPAddressInterface) MarshalBinary() ([]byte, error) {
+func (m *NestedGroup) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -137,8 +105,8 @@ func (m *IPAddressInterface) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *IPAddressInterface) UnmarshalBinary(b []byte) error {
-	var res IPAddressInterface
+func (m *NestedGroup) UnmarshalBinary(b []byte) error {
+	var res NestedGroup
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

@@ -232,7 +232,7 @@ func (a *Client) SecretsSecretRolesDelete(params *SecretsSecretRolesDeleteParams
 }
 
 /*
-  SecretsSecretRolesList Call to super to allow for caching
+  SecretsSecretRolesList secrets secret roles list API
 */
 func (a *Client) SecretsSecretRolesList(params *SecretsSecretRolesListParams, authInfo runtime.ClientAuthInfoWriter) (*SecretsSecretRolesListOK, error) {
 	// TODO: Validate the params before sending
@@ -302,7 +302,7 @@ func (a *Client) SecretsSecretRolesPartialUpdate(params *SecretsSecretRolesParti
 }
 
 /*
-  SecretsSecretRolesRead Call to super to allow for caching
+  SecretsSecretRolesRead secrets secret roles read API
 */
 func (a *Client) SecretsSecretRolesRead(params *SecretsSecretRolesReadParams, authInfo runtime.ClientAuthInfoWriter) (*SecretsSecretRolesReadOK, error) {
 	// TODO: Validate the params before sending

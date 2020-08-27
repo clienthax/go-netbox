@@ -49,7 +49,7 @@ type NestedPowerPort struct {
 
 	// Name
 	// Required: true
-	// Max Length: 50
+	// Max Length: 64
 	// Min Length: 1
 	Name *string `json:"name"`
 
@@ -131,7 +131,7 @@ func (m *NestedPowerPort) validateName(formats strfmt.Registry) error {
 		return err
 	}
 
-	if err := validate.MaxLength("name", "body", string(*m.Name), 50); err != nil {
+	if err := validate.MaxLength("name", "body", string(*m.Name), 64); err != nil {
 		return err
 	}
 

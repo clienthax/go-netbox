@@ -50,6 +50,12 @@ type RearPort struct {
 	// Read Only: true
 	ID int64 `json:"id,omitempty"`
 
+	// Label
+	//
+	// Physical label
+	// Max Length: 64
+	Label string `json:"label,omitempty"`
+
 	// Name
 	// Required: true
 	// Max Length: 64
@@ -62,11 +68,16 @@ type RearPort struct {
 	Positions int64 `json:"positions,omitempty"`
 
 	// tags
-	Tags []string `json:"tags"`
+	Tags []*NestedTag `json:"tags"`
 
 	// type
 	// Required: true
 	Type *RearPortType `json:"type"`
+
+	// Url
+	// Read Only: true
+	// Format: uri
+	URL strfmt.URI `json:"url,omitempty"`
 }
 
 // Validate validates this rear port
@@ -85,6 +96,10 @@ func (m *RearPort) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateLabel(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
 	}
@@ -98,6 +113,10 @@ func (m *RearPort) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateURL(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -156,6 +175,19 @@ func (m *RearPort) validateDevice(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *RearPort) validateLabel(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Label) { // not required
+		return nil
+	}
+
+	if err := validate.MaxLength("label", "body", string(m.Label), 64); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *RearPort) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
@@ -197,9 +229,17 @@ func (m *RearPort) validateTags(formats strfmt.Registry) error {
 	}
 
 	for i := 0; i < len(m.Tags); i++ {
+		if swag.IsZero(m.Tags[i]) { // not required
+			continue
+		}
 
-		if err := validate.MinLength("tags"+"."+strconv.Itoa(i), "body", string(m.Tags[i]), 1); err != nil {
-			return err
+		if m.Tags[i] != nil {
+			if err := m.Tags[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("tags" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
 		}
 
 	}
@@ -220,6 +260,19 @@ func (m *RearPort) validateType(formats strfmt.Registry) error {
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *RearPort) validateURL(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.URL) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("url", "body", "uri", m.URL.String(), formats); err != nil {
+		return err
 	}
 
 	return nil
