@@ -41692,7 +41692,7 @@
           "title": "Assigned object",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "type": "object"
           },
           "readOnly": true
         },
@@ -41819,7 +41819,7 @@
           "title": "Assigned object",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "type": "object"
           },
           "readOnly": true
         },
