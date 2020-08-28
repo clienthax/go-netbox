@@ -31600,7 +31600,7 @@
           "description": "\nReturn the appropriate serializer for the type of connected object.\n",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "type": "object"
           },
           "readOnly": true
         },
@@ -31710,7 +31710,7 @@
           "description": "\nReturn the appropriate serializer for the type of connected object.\n",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "type": "object"
           },
           "readOnly": true
         },
@@ -32416,7 +32416,7 @@
           "title": "Termination a",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "type": "object"
           },
           "readOnly": true
         },
@@ -32434,7 +32434,7 @@
           "title": "Termination b",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "type": "object"
           },
           "readOnly": true
         },
@@ -32578,7 +32578,7 @@
           "title": "Termination a",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "type": "object"
           },
           "readOnly": true
         },
@@ -32596,7 +32596,7 @@
           "title": "Termination b",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "type": "object"
           },
           "readOnly": true
         },
@@ -33270,7 +33270,7 @@
           "description": "\nReturn the appropriate serializer for the type of connected object.\n",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "type": "object"
           },
           "readOnly": true
         },
@@ -33526,7 +33526,7 @@
           "description": "\nReturn the appropriate serializer for the type of connected object.\n",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "type": "object"
           },
           "readOnly": true
         },
@@ -33790,7 +33790,7 @@
           "description": "\nReturn the appropriate serializer for the type of connected object.\n",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "type": "object"
           },
           "readOnly": true
         },
@@ -33900,7 +33900,7 @@
           "description": "\nReturn the appropriate serializer for the type of connected object.\n",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "type": "object"
           },
           "readOnly": true
         },
@@ -34594,7 +34594,7 @@
           "title": "Config context",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "type": "object"
           },
           "readOnly": true
         },
@@ -34779,7 +34779,7 @@
           "title": "Config context",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "type": "object"
           },
           "readOnly": true
         },
@@ -34807,7 +34807,7 @@
           "title": "Method",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "type": "object"
           }
         }
       }
@@ -35883,7 +35883,7 @@
           "description": "\nReturn the appropriate serializer for the type of connected object.\n",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "type": "object"
           },
           "readOnly": true
         },
@@ -36119,7 +36119,7 @@
           "description": "\nReturn the appropriate serializer for the type of connected object.\n",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "type": "object"
           },
           "readOnly": true
         },
@@ -36746,7 +36746,7 @@
           "description": "\nReturn the appropriate serializer for the type of connected object.\n",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "type": "object"
           },
           "readOnly": true
         },
@@ -37842,7 +37842,7 @@
           "description": "\nReturn the appropriate serializer for the type of connected object.\n",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "type": "object"
           },
           "readOnly": true
         },
@@ -38029,7 +38029,7 @@
           "description": "\nReturn the appropriate serializer for the type of connected object.\n",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "type": "object"
           },
           "readOnly": true
         },
@@ -38698,7 +38698,7 @@
           "description": "\nReturn the appropriate serializer for the type of connected object.\n",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "type": "object"
           },
           "readOnly": true
         },
@@ -41057,7 +41057,7 @@
           "title": "Parent",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "type": "object"
           },
           "readOnly": true
         },
@@ -41260,7 +41260,7 @@
           "description": "\nSerialize a nested representation of the changed object.\n",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "type": "object"
           },
           "readOnly": true
         },
@@ -44508,7 +44508,7 @@
           "title": "Config context",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "type": "object"
           },
           "readOnly": true
         },
@@ -44646,7 +44646,7 @@
           "title": "Config context",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "type": "object"
           },
           "readOnly": true
         },

@@ -24,6 +24,7 @@ import (
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // DeviceNAPALM device n a p a l m
@@ -33,7 +34,7 @@ type DeviceNAPALM struct {
 
 	// Method
 	// Required: true
-	Method map[string]string `json:"method"`
+	Method map[string]interface{} `json:"method"`
 }
 
 // Validate validates this device n a p a l m
@@ -51,6 +52,18 @@ func (m *DeviceNAPALM) Validate(formats strfmt.Registry) error {
 }
 
 func (m *DeviceNAPALM) validateMethod(formats strfmt.Registry) error {
+
+	for k := range m.Method {
+
+		if err := validate.Required("method"+"."+k, "body", m.Method[k]); err != nil {
+			return err
+		}
+
+		if err := validate.Required("method"+"."+k, "body", m.Method[k]); err != nil {
+			return err
+		}
+
+	}
 
 	return nil
 }
