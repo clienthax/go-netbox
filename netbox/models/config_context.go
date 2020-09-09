@@ -49,7 +49,7 @@ type ConfigContext struct {
 
 	// Data
 	// Required: true
-	Data *string `json:"data"`
+	Data map[string]interface{} `json:"data"`
 
 	// Description
 	// Max Length: 200
@@ -259,8 +259,16 @@ func (m *ConfigContext) validateCreated(formats strfmt.Registry) error {
 
 func (m *ConfigContext) validateData(formats strfmt.Registry) error {
 
-	if err := validate.Required("data", "body", m.Data); err != nil {
-		return err
+	for k := range m.Data {
+
+		if err := validate.Required("data"+"."+k, "body", m.Data[k]); err != nil {
+			return err
+		}
+
+		if err := validate.Required("data"+"."+k, "body", m.Data[k]); err != nil {
+			return err
+		}
+
 	}
 
 	return nil

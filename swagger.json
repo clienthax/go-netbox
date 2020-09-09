@@ -40684,7 +40684,10 @@
         },
         "data": {
           "title": "Data",
-          "type": "string"
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
         },
         "created": {
           "title": "Created",
