@@ -33145,7 +33145,10 @@
         },
         "local_context_data": {
           "title": "Local context data",
-          "type": "string",
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          },
           "x-nullable": true
         },
         "tags": {
@@ -34573,7 +34576,10 @@
         },
         "local_context_data": {
           "title": "Local context data",
-          "type": "string",
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          },
           "x-nullable": true
         },
         "tags": {
@@ -34758,7 +34764,10 @@
         },
         "local_context_data": {
           "title": "Local context data",
-          "type": "string",
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          },
           "x-nullable": true
         },
         "tags": {
@@ -44493,7 +44502,10 @@
         },
         "local_context_data": {
           "title": "Local context data",
-          "type": "string",
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          },
           "x-nullable": true
         },
         "tags": {
@@ -44631,7 +44643,10 @@
         },
         "local_context_data": {
           "title": "Local context data",
-          "type": "string",
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          },
           "x-nullable": true
         },
         "tags": {
